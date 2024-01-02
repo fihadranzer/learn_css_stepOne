@@ -1,25 +1,38 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        
-        <link href="https://fonts.googleapis.com/css?family=Lato:100,300,400,700,900" rel="stylesheet">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-        <link rel="stylesheet" href="css/icon-font.css">
-        <link rel="stylesheet" href="css/style.css">
-        <link rel="shortcut icon" type="image/png" href="img/favicon.png">
-        
-        <title>Natours | Exciting tours for adventurous people</title>
-    </head>
-    <body>
+    <link
+      href="https://fonts.googleapis.com/css?family=Lato:100,300,400,700,900"
+      rel="stylesheet" />
 
-        <!-- Add Header with Hero section -->
-        <header class="header">
-            Some Text ... 
+    <link rel="stylesheet" href="css/icon-font.css" />
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="shortcut icon" type="image/png" href="img/favicon.png" />
 
-        </header>
-        
-        
-    </body>
+    <title>Natours | Exciting tours for adventurous people</title>
+  </head>
+  <body>
+    <!-- Add Header with Hero section -->
+    <header class="header">
+      <!-- Insert a image under div element because img is an inline element 
+                so best practice is use container for image
+            -->
+
+      <div class="logo-box">
+        <img src="img/logo-white.png" alt="logo-image" class="logo" />
+      </div>
+      <!-- h1 is most important to set site title because od search engine sees that first
+        so we added it under signle h1 wihtin <span> tag. 
+    -->
+      <div class="text__box">
+        <h1 class="heading__primary">
+            <span class="heading__primary__main">Outdoors</span>
+            <span class="heading__primary__sub">is where life happens</span>
+          </h1>
+      </div>
+    </header>
+  </body>
 </html>

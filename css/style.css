@@ -42,12 +42,52 @@ body {
     ),
     url("../img/hero.jpg");
   background-size: cover;
-    /* bg position top is important for responsiveness */
+  /* bg position top is important for responsiveness */
   background-position: top;
-    /* Here is the clicp path propery to shape the header BG or any other shape og BG
+  /* Here is the clicp path propery to shape the header BG or any other shape og BG
         polygon(xy, xy, xy, xy) ----------> x is coordination of x axis and y is coordination of y axis 
 
         ******* to use automatic clip path go to this site -- https://bennettfeely.com/clippy/
     */
-  clip-path: polygon(0 0 , 100% 0, 100% 75%, 0 100%);
+  clip-path: polygon(0 0, 100% 0, 100% 75%, 0 100%);
+  position: relative;
+}
+
+/* header part-2 */
+.logo-box {
+  position: absolute;
+  top: 40px;
+  left: 40px;
+}
+
+.logo {
+  height: 35px;
+}
+
+/* Adding headeing Title on hero section */
+.text__box{
+
+  /* Here in this code we can keep element center by using div with absoulote positioning 
+  ----- We need to remember transform - translate (x,y) - x,y is depending on top/right/left/bottom   
+  */
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%)
+}
+.heading__primary {
+  color: #fff;
+  text-transform: uppercase;
+}
+.heading__primary__main {
+  display: block;
+  font-size: 60px;
+  font-weight: 400;
+  letter-spacing: 35px;
+}
+.heading__primary__sub {
+  display: block;
+  font-size: 20px;
+  font-weight: 700;
+  letter-spacing: 17.4px;
 }
