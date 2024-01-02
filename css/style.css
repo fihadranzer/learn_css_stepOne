@@ -65,29 +65,84 @@ body {
 }
 
 /* Adding headeing Title on hero section */
-.text__box{
-
+.text__box {
   /* Here in this code we can keep element center by using div with absoulote positioning 
   ----- We need to remember transform - translate (x,y) - x,y is depending on top/right/left/bottom   
   */
   position: absolute;
   top: 40%;
   left: 50%;
-  transform: translate(-50%, -50%)
+  transform: translate(-50%, -50%);
 }
 .heading__primary {
   color: #fff;
   text-transform: uppercase;
+  /* use below code for smooth animation related with text div */
+  backface-visibility: hidden;
 }
 .heading__primary__main {
   display: block;
   font-size: 60px;
   font-weight: 400;
   letter-spacing: 35px;
+
+  /* Apply animation here  */
+  animation-name: moveInLeft;
+  animation-duration: 1s;
+  animation-timing-function: ease-out;
 }
 .heading__primary__sub {
   display: block;
   font-size: 20px;
   font-weight: 700;
   letter-spacing: 17.4px;
+
+  /* Apply move right animation */
+
+  /* Can write animation in one line 
+   ===== animation: moveInRight 1s ease-out; ===== 
+  */
+
+  animation-name: moveInRight;
+  animation-duration: 1s;
+  animation-timing-function: ease-out;
+}
+
+/* header part-3 -- adding some small animation using @keyframe*/
+
+/* To wirte animation follow codes below  */
+
+@keyframes moveInLeft {
+  /* input 0% to 100% time frame rate and mention what functionality will apply  */
+
+  0% {
+    opacity: 0;
+    transform: translateX(-100px);
+  }
+
+  80% {
+    transform: translate(10px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translate(0);
+  }
+}
+@keyframes moveInRight {
+  /* input 0% to 100% time frame rate and mention what functionality will apply  */
+
+  0% {
+    opacity: 0;
+    transform: translateX(100px);
+  }
+
+  80% {
+    transform: translate(-10px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translate(0);
+  }
 }
