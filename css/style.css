@@ -70,18 +70,18 @@ body {
 }
 
 /* header part-2 */
-.logo-box {
+.header__logo-box {
   position: absolute;
   top: 4rem;
   left: 4rem;
 }
 
-.logo {
+.head__logo {
   height: 3.5rem;
 }
 
 /* Adding headeing Title on hero section */
-.text__box {
+.header__text-box {
   /* Here in this code we can keep element center by using div with absoulote positioning 
   ----- We need to remember transform - translate (x,y) - x,y is depending on top/right/left/bottom   
   */
@@ -91,14 +91,14 @@ body {
   transform: translate(-50%, -50%);
   text-align: center;
 }
-.heading__primary {
+.heading-primary {
   color: #fff;
   text-transform: uppercase;
   /* use below code for smooth animation related with text div */
   backface-visibility: hidden;
   margin-bottom: 6rem;
 }
-.heading__primary__main {
+.heading-primary--main {
   display: block;
   font-size: 6rem;
   font-weight: 400;
@@ -109,7 +109,7 @@ body {
   animation-duration: 1s;
   animation-timing-function: ease-out;
 }
-.heading__primary__sub {
+.heading-primary--sub {
   display: block;
   font-size: 2rem;
   font-weight: 700;
@@ -205,7 +205,7 @@ body {
   box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.2);
 }
 
-.btn-white {
+.btn--white {
   background: #fff;
   color: #777;
 }
@@ -225,7 +225,7 @@ body {
   transition: all 0.4s;
 }
 
-.btn-white::after {
+.btn--white::after {
   background-color: #fff;
 }
 
@@ -235,7 +235,7 @@ body {
   opacity: 0;
 }
 
-.btn__animated {
+.btn--animated {
   animation: moveInBottom 0.5s ease-out 0.75s;
   animation-fill-mode: backwards;
 }
