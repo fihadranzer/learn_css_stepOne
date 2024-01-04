@@ -15,13 +15,14 @@ html{
 
 */
 
-// Sass Starts Here From now 
+// Sass Starts Here From now
 
-$color-primary-light:#7ed56f;
-$color-primary:#55c57a;
-$color-primary-dark:#28b485;
-$color-gray-dark:#777;
-$color-white:#fff;
+$color-primary-light: #7ed56f;
+$color-primary: #55c57a;
+$color-primary-dark: #28b485;
+$color-gray-dark: #777;
+$color-white: #fff;
+$color-black: #000;
 
 /* Add this code for Remove default padding and margin from the page */
 *,
@@ -75,63 +76,89 @@ body {
     */
   clip-path: polygon(0 0, 100% 0, 100% 75%, 0 100%);
   position: relative;
+
+  //   here we are adding SASS - we can use & sign to add child into this parent element like below
+
+  &__logo-box {
+    position: absolute;
+    top: 4rem;
+    left: 4rem;
+  }
+
+  &__logo {
+    height: 3.5rem;
+  }
+
+  /* Adding headeing Title on hero section */
+  &__text-box {
+    /* Here in this code we can keep element center by using div with absoulote positioning 
+    ----- We need to remember transform - translate (x,y) - x,y is depending on top/right/left/bottom   
+    */
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+  }
 }
 
 /* header part-2 */
-.header__logo-box {
-  position: absolute;
-  top: 4rem;
-  left: 4rem;
-}
+// .header__logo-box {
+//     position: absolute;
+//     top: 4rem;
+//     left: 4rem;
+// }
 
-.head__logo {
-  height: 3.5rem;
-}
+// .head__logo {
+//   height: 3.5rem;
+// }
 
-/* Adding headeing Title on hero section */
-.header__text-box {
-  /* Here in this code we can keep element center by using div with absoulote positioning 
-  ----- We need to remember transform - translate (x,y) - x,y is depending on top/right/left/bottom   
-  */
-  position: absolute;
-  top: 40%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  text-align: center;
-}
+// /* Adding headeing Title on hero section */
+// .header__text-box {
+//   /* Here in this code we can keep element center by using div with absoulote positioning
+//   ----- We need to remember transform - translate (x,y) - x,y is depending on top/right/left/bottom
+//   */
+//   position: absolute;
+//   top: 40%;
+//   left: 50%;
+//   transform: translate(-50%, -50%);
+//   text-align: center;
+// }
 .heading-primary {
   color: $color-white;
   text-transform: uppercase;
   /* use below code for smooth animation related with text div */
   backface-visibility: hidden;
   margin-bottom: 6rem;
-}
-.heading-primary--main {
-  display: block;
-  font-size: 6rem;
-  font-weight: 400;
-  letter-spacing: 3.5rem;
 
-  /* Apply animation here  */
-  animation-name: moveInLeft;
-  animation-duration: 1s;
-  animation-timing-function: ease-out;
-}
-.heading-primary--sub {
-  display: block;
-  font-size: 2rem;
-  font-weight: 700;
-  letter-spacing: 1.75rem;
+  //   sass heading primary updated
+  &--main {
+    display: block;
+    font-size: 6rem;
+    font-weight: 400;
+    letter-spacing: 3.5rem;
 
-  /* Apply move right animation */
+    /* Apply animation here  */
+    animation-name: moveInLeft;
+    animation-duration: 1s;
+    animation-timing-function: ease-out;
+  }
+  &--sub {
+    display: block;
+    font-size: 2rem;
+    font-weight: 700;
+    letter-spacing: 1.75rem;
 
-  /* Can write animation in one line 
-   ===== animation: moveInRight 1s ease-out; ===== 
-  */
+    /* Apply move right animation */
 
-  animation-name: moveInRight;
-  animation-duration: 1s;
-  animation-timing-function: ease-out;
+    /* Can write animation in one line 
+     ===== animation: moveInRight 1s ease-out; ===== 
+    */
+
+    animation-name: moveInRight;
+    animation-duration: 1s;
+    animation-timing-function: ease-out;
+  }
 }
 
 /* header part-3 -- adding some small animation using @keyframe*/
@@ -188,66 +215,63 @@ body {
 
 /*Complex  Button  with animation */
 
-.btn:link,
-.btn:visited {
-  /* when we select add with pseudo class we can define as ":link" */
-  text-transform: uppercase;
-  text-decoration: none;
-  padding: 1.5rem 4rem;
-  display: inline-block;
-  /* Add transistion to effect timing on the animation element like transform  */
-  border-radius: 10rem;
-  transition: all 0.2s;
-  position: relative;
-  font-size: 1.6rem;
-  /* animation: moveInBottom 0.3s ease-out; */
+.btn {
+  &:link,
+  &:visited {
+    /* when we select add with pseudo class we can define as ":link" */
+    text-transform: uppercase;
+    text-decoration: none;
+    padding: 1.5rem 4rem;
+    display: inline-block;
+    /* Add transistion to effect timing on the animation element like transform  */
+    border-radius: 10rem;
+    transition: all 0.2s;
+    position: relative;
+    font-size: 1.6rem;
+    /* animation: moveInBottom 0.3s ease-out; */
+  }
+
+  &:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 1rem 2rem rgba($color-black, 0.2);
+    /* it means when we hover the btn element we see some sort of style for "after::" pseoudo element */
+    &::after {
+      transform: scaleX(1.4) scaleY(1.6);
+      opacity: 0;
+    }
+  }
+
+  &:active {
+    transform: translateY(-1px);
+    box-shadow: 0 0.5rem 1rem rgba($color-black, 0.2);
+  }
+
+  &--white {
+    background: $color-white;
+    color: $color-gray-dark;
+
+    &::after {
+      background-color: $color-white;
+    }
+  }
+
+  &::after {
+    /* after means that if we wanna add somthing under a parent element within same div */
+    content: "";
+    display: inline-block;
+    height: 100%;
+    width: 100%;
+    border-radius: 10rem;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    /* This transition is for hover after element */
+    transition: all 0.4s;
+  }
+
+  &--animated {
+    animation: moveInBottom 0.5s ease-out 0.75s;
+    animation-fill-mode: backwards;
+  }
 }
-
-.btn:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.2);
-}
-
-.btn:active {
-  transform: translateY(-1px);
-  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.2);
-}
-
-.btn--white {
-  background: $color-white;
-  color: $color-gray-dark;
-}
-
-
-
-.btn::after {
-  /* after means that if we wanna add somthing under a parent element within same div */
-  content: "";
-  display: inline-block;
-  height: 100%;
-  width: 100%;
-  border-radius: 10rem;
-  position: absolute;
-  top: 0;
-  left: 0;
-  z-index: -1;
-  /* This transition is for hover after element */
-  transition: all 0.4s;
-}
-
-.btn--white::after {
-  background-color: $color-white;
-}
-
-/* it means when we hover the btn element we see some sort of style for "after::" pseoudo element */
-.btn:hover::after {
-  transform: scaleX(1.4) scaleY(1.6);
-  opacity: 0;
-}
-
-.btn--animated {
-  animation: moveInBottom 0.5s ease-out 0.75s;
-  animation-fill-mode: backwards;
-}
-
-
