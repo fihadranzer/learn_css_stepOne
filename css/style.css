@@ -7,11 +7,26 @@ Dark green: #28b485
 
 */
 
+/* 
+========== Convert default html to set rem value =============
+html{
+  font-size:10px;
+}
+
+*/
+
 /* Add this code for Remove default padding and margin from the page */
-* {
+*,
+*::after,
+*::before {
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
+  box-sizing: inherit;
+}
+
+html {
+  /* here we can calculate this dynamically (10/16)*100% = 62.5% */
+  font-size: 62.5%;
 }
 
 /* Here added some code in body section  --- Set font-family within body means it will inherit all the
@@ -21,12 +36,13 @@ elements presents within body tag
 body {
   font-family: "Lato", sans-serif;
   font-weight: 400;
-  font-size: 16px;
+  /* font-size: 16px; */
   line-height: 1.7;
   color: #777;
   /* Adding 30px padding entire body */
 
-  padding: 30px;
+  padding: 3rem;
+  box-sizing: border-box;
 }
 
 /* in header we will use background images  */
@@ -56,12 +72,12 @@ body {
 /* header part-2 */
 .logo-box {
   position: absolute;
-  top: 40px;
-  left: 40px;
+  top: 4rem;
+  left: 4rem;
 }
 
 .logo {
-  height: 35px;
+  height: 3.5rem;
 }
 
 /* Adding headeing Title on hero section */
@@ -80,13 +96,13 @@ body {
   text-transform: uppercase;
   /* use below code for smooth animation related with text div */
   backface-visibility: hidden;
-  margin-bottom: 60px;
+  margin-bottom: 6rem;
 }
 .heading__primary__main {
   display: block;
-  font-size: 60px;
+  font-size: 6rem;
   font-weight: 400;
-  letter-spacing: 35px;
+  letter-spacing: 3.5rem;
 
   /* Apply animation here  */
   animation-name: moveInLeft;
@@ -95,9 +111,9 @@ body {
 }
 .heading__primary__sub {
   display: block;
-  font-size: 20px;
+  font-size: 2rem;
   font-weight: 700;
-  letter-spacing: 17.4px;
+  letter-spacing: 1.75rem;
 
   /* Apply move right animation */
 
@@ -119,11 +135,11 @@ body {
 
   0% {
     opacity: 0;
-    transform: translateX(-100px);
+    transform: translateX(-10rem);
   }
 
   80% {
-    transform: translate(10px);
+    transform: translate(1rem);
   }
 
   100% {
@@ -136,11 +152,11 @@ body {
 
   0% {
     opacity: 0;
-    transform: translateX(100px);
+    transform: translateX(10rem);
   }
 
   80% {
-    transform: translate(-10px);
+    transform: translate(-1rem);
   }
 
   100% {
@@ -153,7 +169,7 @@ body {
 
   0% {
     opacity: 0;
-    transform: translateY(30px);
+    transform: translateY(3rem);
   }
 
   100% {
@@ -169,23 +185,24 @@ body {
   /* when we select add with pseudo class we can define as ":link" */
   text-transform: uppercase;
   text-decoration: none;
-  padding: 15px 40px;
+  padding: 1.5rem 4rem;
   display: inline-block;
   /* Add transistion to effect timing on the animation element like transform  */
-  border-radius: 100px;
+  border-radius: 10rem;
   transition: all 0.2s;
   position: relative;
+  font-size: 1.6rem;
   /* animation: moveInBottom 0.3s ease-out; */
 }
 
 .btn:hover {
   transform: translateY(-3px);
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.2);
 }
 
 .btn:active {
   transform: translateY(-1px);
-  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.2);
 }
 
 .btn-white {
@@ -199,7 +216,7 @@ body {
   display: inline-block;
   height: 100%;
   width: 100%;
-  border-radius: 100px;
+  border-radius: 10rem;
   position: absolute;
   top: 0;
   left: 0;
@@ -216,11 +233,9 @@ body {
 .btn:hover::after {
   transform: scaleX(1.4) scaleY(1.6);
   opacity: 0;
-  
 }
 
-
-.btn__animated{
-  animation: moveInBottom 0.5s ease-out .75s ;
+.btn__animated {
+  animation: moveInBottom 0.5s ease-out 0.75s;
   animation-fill-mode: backwards;
 }
