@@ -1,0 +1,63 @@
+
+
+
+.btn {
+    &:link,
+    &:visited {
+      /* when we select add with pseudo class we can define as ":link" */
+      text-transform: uppercase;
+      text-decoration: none;
+      padding: 1.5rem 4rem;
+      display: inline-block;
+      /* Add transistion to effect timing on the animation element like transform  */
+      border-radius: 10rem;
+      transition: all 0.2s;
+      position: relative;
+      font-size: 1.6rem;
+      /* animation: moveInBottom 0.3s ease-out; */
+    }
+  
+    &:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 1rem 2rem rgba($color-black, 0.2);
+      /* it means when we hover the btn element we see some sort of style for "after::" pseoudo element */
+      &::after {
+        transform: scaleX(1.4) scaleY(1.6);
+        opacity: 0;
+      }
+    }
+  
+    &:active {
+      transform: translateY(-1px);
+      box-shadow: 0 0.5rem 1rem rgba($color-black, 0.2);
+    }
+  
+    &--white {
+      background: $color-white;
+      color: $color-gray-dark;
+  
+      &::after {
+        background-color: $color-white;
+      }
+    }
+  
+    &::after {
+      /* after means that if we wanna add somthing under a parent element within same div */
+      content: "";
+      display: inline-block;
+      height: 100%;
+      width: 100%;
+      border-radius: 10rem;
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: -1;
+      /* This transition is for hover after element */
+      transition: all 0.4s;
+    }
+  
+    &--animated {
+      animation: moveInBottom 0.5s ease-out 0.75s;
+      animation-fill-mode: backwards;
+    }
+  }
