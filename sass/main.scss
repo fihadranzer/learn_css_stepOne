@@ -15,92 +15,30 @@ html{
 
 */
 
+// Here we will import other sass file for architecture purpose
+
+// This is for pages folder
+@import "pages/home";
+
+// This is for layout folder
+@import "layout/header";
+
+// This is for components  folder
+@import "components/button";
+// This is for Abstracts folder
+@import "abstracts/functions";
+@import "abstracts/mixins";
+@import "abstracts/variables";
+// This is for base folder
+@import "base/base"; 
+@import "base/animations";
+@import "base/typography";
+@import "base/utilities";
+
 // Sass Starts Here From now
-
-$color-primary-light: #7ed56f;
-$color-primary: #55c57a;
-$color-primary-dark: #28b485;
-$color-gray-dark: #777;
-$color-white: #fff;
-$color-black: #000;
-
-/* Add this code for Remove default padding and margin from the page */
-*,
-*::after,
-*::before {
-  margin: 0;
-  padding: 0;
-  box-sizing: inherit;
-}
-
-html {
-  /* here we can calculate this dynamically (10/16)*100% = 62.5% */
-  font-size: 62.5%;
-}
-
-/* Here added some code in body section  --- Set font-family within body means it will inherit all the
-elements presents within body tag 
-*/
-
-body {
-  font-family: "Lato", sans-serif;
-  font-weight: 400;
-  /* font-size: 16px; */
-  line-height: 1.7;
-  color: $color-gray-dark;
-  /* Adding 30px padding entire body */
-
-  padding: 3rem;
-  box-sizing: border-box;
-}
-
+// ---- switched to _variable.scss file
+// ---- swithced to _base.scss file
 /* in header we will use background images  */
-
-.header {
-  height: 95vh;
-  /* To create forground image with gradient we need to use linear gradiant 
-  before image url with "Background-image" property + Also adding gradiant with opacity*/
-  background-image: linear-gradient(
-      to right bottom,
-      rgba($color-primary-light, 0.8),
-      rgba($color-primary-dark, 0.8)
-    ),
-    url("../img/hero.jpg");
-  background-size: cover;
-  /* bg position top is important for responsiveness */
-  background-position: top;
-  /* Here is the clicp path propery to shape the header BG or any other shape og BG
-        polygon(xy, xy, xy, xy) ----------> x is coordination of x axis and y is coordination of y axis 
-
-        ******* to use automatic clip path go to this site -- https://bennettfeely.com/clippy/
-    */
-  clip-path: polygon(0 0, 100% 0, 100% 75%, 0 100%);
-  position: relative;
-
-  //   here we are adding SASS - we can use & sign to add child into this parent element like below
-
-  &__logo-box {
-    position: absolute;
-    top: 4rem;
-    left: 4rem;
-  }
-
-  &__logo {
-    height: 3.5rem;
-  }
-
-  /* Adding headeing Title on hero section */
-  &__text-box {
-    /* Here in this code we can keep element center by using div with absoulote positioning 
-    ----- We need to remember transform - translate (x,y) - x,y is depending on top/right/left/bottom   
-    */
-    position: absolute;
-    top: 40%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    text-align: center;
-  }
-}
 
 /* header part-2 */
 // .header__logo-box {
@@ -124,154 +62,10 @@ body {
 //   transform: translate(-50%, -50%);
 //   text-align: center;
 // }
-.heading-primary {
-  color: $color-white;
-  text-transform: uppercase;
-  /* use below code for smooth animation related with text div */
-  backface-visibility: hidden;
-  margin-bottom: 6rem;
-
-  //   sass heading primary updated
-  &--main {
-    display: block;
-    font-size: 6rem;
-    font-weight: 400;
-    letter-spacing: 3.5rem;
-
-    /* Apply animation here  */
-    animation-name: moveInLeft;
-    animation-duration: 1s;
-    animation-timing-function: ease-out;
-  }
-  &--sub {
-    display: block;
-    font-size: 2rem;
-    font-weight: 700;
-    letter-spacing: 1.75rem;
-
-    /* Apply move right animation */
-
-    /* Can write animation in one line 
-     ===== animation: moveInRight 1s ease-out; ===== 
-    */
-
-    animation-name: moveInRight;
-    animation-duration: 1s;
-    animation-timing-function: ease-out;
-  }
-}
-
-/* header part-3 -- adding some small animation using @keyframe*/
-
-/* To wirte animation follow codes below  */
-
-@keyframes moveInLeft {
-  /* input 0% to 100% time frame rate and mention what functionality will apply  */
-
-  0% {
-    opacity: 0;
-    transform: translateX(-10rem);
-  }
-
-  80% {
-    transform: translate(1rem);
-  }
-
-  100% {
-    opacity: 1;
-    transform: translate(0);
-  }
-}
-@keyframes moveInRight {
-  /* input 0% to 100% time frame rate and mention what functionality will apply  */
-
-  0% {
-    opacity: 0;
-    transform: translateX(10rem);
-  }
-
-  80% {
-    transform: translate(-1rem);
-  }
-
-  100% {
-    opacity: 1;
-    transform: translate(0);
-  }
-}
-@keyframes moveInBottom {
-  /* input 0% to 100% time frame rate and mention what functionality will apply  */
-
-  0% {
-    opacity: 0;
-    transform: translateY(3rem);
-  }
-
-  100% {
-    opacity: 1;
-    transform: translate(0);
-  }
-}
-
-/*Complex  Button  with animation */
-
-.btn {
-  &:link,
-  &:visited {
-    /* when we select add with pseudo class we can define as ":link" */
-    text-transform: uppercase;
-    text-decoration: none;
-    padding: 1.5rem 4rem;
-    display: inline-block;
-    /* Add transistion to effect timing on the animation element like transform  */
-    border-radius: 10rem;
-    transition: all 0.2s;
-    position: relative;
-    font-size: 1.6rem;
-    /* animation: moveInBottom 0.3s ease-out; */
-  }
-
-  &:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 1rem 2rem rgba($color-black, 0.2);
-    /* it means when we hover the btn element we see some sort of style for "after::" pseoudo element */
-    &::after {
-      transform: scaleX(1.4) scaleY(1.6);
-      opacity: 0;
-    }
-  }
-
-  &:active {
-    transform: translateY(-1px);
-    box-shadow: 0 0.5rem 1rem rgba($color-black, 0.2);
-  }
-
-  &--white {
-    background: $color-white;
-    color: $color-gray-dark;
-
-    &::after {
-      background-color: $color-white;
-    }
-  }
-
-  &::after {
-    /* after means that if we wanna add somthing under a parent element within same div */
-    content: "";
-    display: inline-block;
-    height: 100%;
-    width: 100%;
-    border-radius: 10rem;
-    position: absolute;
-    top: 0;
-    left: 0;
-    z-index: -1;
-    /* This transition is for hover after element */
-    transition: all 0.4s;
-  }
-
-  &--animated {
-    animation: moveInBottom 0.5s ease-out 0.75s;
-    animation-fill-mode: backwards;
-  }
-}
+ /* header part-3 -- adding some small animation using @keyframe*/
+  
+  //  ---- all code swithced to _animations.scss file
+  /*Complex  Button  with animation */
+  
+  // -- button is a components so i transferred it to under component folder file named "_button.scss"
+  
