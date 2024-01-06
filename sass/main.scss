@@ -14,6 +14,7 @@ html{
 }
 
 */
+// Sass Starts Here From now
 
 // Here we will import other sass file for architecture purpose
 
@@ -22,6 +23,7 @@ html{
 
 // This is for layout folder
 @import "layout/header";
+@import "layout/grid";
 
 // This is for components  folder
 @import "components/button";
@@ -30,12 +32,12 @@ html{
 @import "abstracts/mixins";
 @import "abstracts/variables";
 // This is for base folder
-@import "base/base"; 
+@import "base/base";
 @import "base/animations";
 @import "base/typography";
 @import "base/utilities";
 
-// Sass Starts Here From now
+//
 // ---- switched to _variable.scss file
 // ---- swithced to _base.scss file
 /* in header we will use background images  */
@@ -62,10 +64,9 @@ html{
 //   transform: translate(-50%, -50%);
 //   text-align: center;
 // }
- /* header part-3 -- adding some small animation using @keyframe*/
-  
-  //  ---- all code swithced to _animations.scss file
-  /*Complex  Button  with animation */
-  
-  // -- button is a components so i transferred it to under component folder file named "_button.scss"
-  
+/* header part-3 -- adding some small animation using @keyframe*/
+
+//  ---- all code swithced to _animations.scss file
+/*Complex  Button  with animation */
+
+// -- button is a components so i transferred it to under component folder file named "_button.scss"
