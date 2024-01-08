@@ -1,49 +1,47 @@
-
 @import "../abstracts/variables";
 
 .header {
-    height: 95vh;
-    /* To create forground image with gradient we need to use linear gradiant 
+  height: 95vh;
+  /* To create forground image with gradient we need to use linear gradiant 
     before image url with "Background-image" property + Also adding gradiant with opacity*/
-    background-image: linear-gradient(
-        to right bottom,
-        rgba($color-primary-light, 0.8), 
-        rgba($color-primary-dark, 0.8)
-      ),
-      url("../img/hero.jpg");
-    background-size: cover;
-    /* bg position top is important for responsiveness */
-    background-position: top;
-    /* Here is the clicp path propery to shape the header BG or any other shape og BG
+  background-image: linear-gradient(
+      to right bottom,
+      rgba($color-primary-light, 0.8),
+      rgba($color-primary-dark, 0.8)
+    ),
+    url("../img/hero.jpg");
+  background-size: cover;
+  /* bg position top is important for responsiveness */
+  background-position: top;
+  /* Here is the clicp path propery to shape the header BG or any other shape og BG
           polygon(xy, xy, xy, xy) ----------> x is coordination of x axis and y is coordination of y axis 
   
           ******* to use automatic clip path go to this site -- https://bennettfeely.com/clippy/
       */
-    clip-path: polygon(0 0, 100% 0, 100% 75%, 0 100%);
-    position: relative; 
-  
-    //   here we are adding SASS - we can use & sign to add child into this parent element like below
-  
-    &__logo-box {
-      position: absolute;
-      top: 4rem;
-      left: 4rem;
-    }
-  
-    &__logo {
-      height: 3.5rem;
-    }
-  
-    /* Adding headeing Title on hero section */
-    &__text-box {
-      /* Here in this code we can keep element center by using div with absoulote positioning 
+  clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
+  position: relative;
+
+  //   here we are adding SASS - we can use & sign to add child into this parent element like below
+
+  &__logo-box {
+    position: absolute;
+    top: 4rem;
+    left: 4rem;
+  }
+
+  &__logo {
+    height: 3.5rem;
+  }
+
+  /* Adding headeing Title on hero section */
+  &__text-box {
+    /* Here in this code we can keep element center by using div with absoulote positioning 
       ----- We need to remember transform - translate (x,y) - x,y is depending on top/right/left/bottom   
       */
-      position: absolute;
-      top: 40%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      text-align: center;
-    }
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
   }
-  
+}

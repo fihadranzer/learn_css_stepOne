@@ -2,7 +2,6 @@
 
 .row {
   max-width: $grid-width;
-  background-color: #eee;
   margin: 0 auto;
 
   //   We can select not() to make the code more dynamic to set last child bottom margin
@@ -14,7 +13,6 @@
   //    here we are include clearfix mixin
   @include clearfix;
   [class^="col-"] {
-    background-color: orangered;
     float: left;
     &:not(:last-child) {
       margin-right: $gutter-horizontal;
