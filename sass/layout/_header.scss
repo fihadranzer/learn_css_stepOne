@@ -18,6 +18,7 @@
   
           ******* to use automatic clip path go to this site -- https://bennettfeely.com/clippy/
       */
+  -webkit-clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
   clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
   position: relative;
 
