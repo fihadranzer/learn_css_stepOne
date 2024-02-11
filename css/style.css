@@ -83,6 +83,21 @@ html{
     transform: translate(-50%, -50%);
     text-align: center; }
 
+/*
+0- 600px :          Phone
+600px- 900px :      Tablet protrait 
+900px- 1200px :     Tablet landscape
+[1200px - 1800px ] : Normal Style will be applied here 
+1800Px + :          Big Desktop or larger screen 
+
+*/
+/*
+$break-point argumrnt choices : 
+- phone 
+- tab-port
+- tab-land 
+- big-desktop
+*/
 .row {
   max-width: 114rem;
   margin: 0 auto; }
@@ -671,6 +686,21 @@ html{
   .popup__close:hover {
     color: #55c57a; }
 
+/*
+0- 600px :          Phone
+600px- 900px :      Tablet protrait 
+900px- 1200px :     Tablet landscape
+[1200px - 1800px ] : Normal Style will be applied here 
+1800Px + :          Big Desktop or larger screen 
+
+*/
+/*
+$break-point argumrnt choices : 
+- phone 
+- tab-port
+- tab-land 
+- big-desktop
+*/
 /* Add this code for Remove default padding and margin from the page */
 *,
 *::after,
@@ -682,6 +712,15 @@ html{
 html {
   /* here we can calculate this dynamically (10/16)*100% = 62.5% */
   font-size: 62.5%; }
+  @media (max-width: 75em) {
+    html {
+      font-size: 56.25%; } }
+  @media (max-width: 56.25em) {
+    html {
+      font-size: 50%; } }
+  @media (min-width: 112.5em) {
+    html {
+      font-size: 75%; } }
 
 body {
   box-sizing: border-box; }
